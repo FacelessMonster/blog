@@ -14,8 +14,12 @@
  *= require_self
  */
 .field_with_errors textarea {
-  border-color: rgb(43, 168, 226);
+  border-color: rgb(209, 132, 132);
 }
 .field_with_errors input {
-  border-color: rgb(43, 168, 226);
+  border-color: rgb(209, 132, 132);
+}
+
+#contacterrors {
+  background-color: rgb(209, 132, 132);
 }

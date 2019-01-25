@@ -1,12 +1,20 @@
 <h3>Contact with us:)</h3>
 
-<%= form_for :contact, url: '/contacts' do |f|%>
+<% if @contact%>
+<ul id="contacterrors">
+<% @contact.errors.full_messages.each do |er|%>
+  <li><%=er%></li>
+<%end%>
+</ul>
+<%end%>
+
 <p>
- <label for="contact_email">Email:</label><br/>
+  <%= form_for :contact, url: '/contacts' do |f|%>
+  <label for="contact_email">Email:</label><br/>
   <%= f.text_field :email%>
 </p>
 <p>
- <label for="contact_message">Your meaning:</label><br/>
+ <label for="contact_message">Your message:</label><br/>
   <%= f.text_area :message%>
 </p>
 <p>
