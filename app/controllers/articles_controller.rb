@@ -2,7 +2,16 @@ class ArticlesController < ApplicationController
   def new
   end
   def create
-    render plain: params[:article].inspect
+    @article = Article.new(params_article)
+    if @article.valid?
+      @article.save
+    else
+      render action: 'new'
+    end
   end
-  
+
+  private
+  def params_article
+    params.require(:article).permit(:title, :content)
+  end
 end
