@@ -21,6 +21,19 @@ end
     end
   end
 
+def edit 
+  @article = Article.find(params[:id])
+end
+
+def update
+  @article = Article.find(params[:id])
+  if @article.update(params_article)
+    redirect_to @article
+  else
+    render action: 'edit'
+  end
+end
+
   private
   def params_article
     params.require(:article).permit(:title, :content)
