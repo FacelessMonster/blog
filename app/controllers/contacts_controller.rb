@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
+
   def new
-  end  
+  end
+
   def create
     @contact = Contact.new(params_contact)
     if @contact.valid?
@@ -9,6 +11,7 @@ class ContactsController < ApplicationController
       render action: 'new'
     end
   end
+
   private
   def params_contact
     params.require(:contact).permit(:email, :message)

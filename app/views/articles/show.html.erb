@@ -4,4 +4,4 @@
 <div><%=@article.content%></div>
 
 <%# <a href="/articles">Show all articles</a> %>
-<%= link_to 'Show All Articles', articles_path%>
+<%= link_to 'Show All Articles', articles_path%><%= button_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%>
