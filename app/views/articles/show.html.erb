@@ -4,4 +4,28 @@
 <div><%=@article.content%></div>
 
 <%# <a href="/articles">Show all articles</a> %>
-<%= link_to 'Show All Articles', articles_path%><%= button_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%>
+<%= link_to 'Show All Articles', articles_path%>
+<%= button_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%>
+<hr/>
+
+<%= form_for [ @article, @article.comments.build ] do |f| %>
+  <p>
+    <%= f.label :author %><br/>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :body %><br/>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
+
+<div>
+<% @article.comments.reverse.each do |comment| %>
+<h4><%=comment.author%></h4>
+<div><%=comment.body%></div><hr/>
+<%end%>
+</div>
+
