@@ -10,8 +10,9 @@
 <h3><%=@article.title%></h3>
 <div><%=@article.content%></div>
 </div>
-<%# <a href="/articles">Show all articles</a> %>
-<%= link_to 'Show All Articles', articles_path%>
+
+<a href="<%=articles_path%>" class="badge badge-dark">Show all articles</a>
+
 <%= button_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%>
 <hr/>
 
