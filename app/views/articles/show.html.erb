@@ -13,7 +13,7 @@
 
 <a href="<%=articles_path%>" class="badge badge-dark">Show all articles</a>
 
-<%= button_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%>
+<%= button_to 'Delete', article_path(@article), :class => "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }%>
 <hr/>
 
 <%= form_for [ @article, @article.comments.build ] do |f| %>
