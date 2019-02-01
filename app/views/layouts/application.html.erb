@@ -34,7 +34,7 @@
           <li class="nav-item dropdown" style="position: absolute; right: 1%;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%if signed_in?%>
-              <%=current_user.email%>
+              <%=current_user.username%>
               <%else%>
               <%="Log In"%>
               <%end%>
