@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-before_action :authenticate_user!
+before_action :authenticate_user!, :only => [:create, :edit, :destroy, :new]
 
 def show
   @article = Article.find(params[:id])
