@@ -4,6 +4,7 @@ before_action :authenticate_user!, :only => [:create, :edit, :destroy, :new]
 
 def show
   @article = Article.find(params[:id])
+  @user = User.find(@article.user_id)
 end
 
 def index
@@ -14,7 +15,7 @@ def new
 end
 
   def create
-    @article = Article.new(params_article)
+    @article = Article.new(params_article.merge(user_id: current_user.id))
     if @article.valid?
       @article.save
       redirect_to @article

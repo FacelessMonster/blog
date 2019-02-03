@@ -1,3 +1,4 @@
+<div class="container">
 <% @articles.each do |article| %>
 <h2><%=article.title%></h2>
 <div><%=article.content%></div>
@@ -5,3 +6,4 @@
 <a href="<%=edit_article_path(article)%>" class="badge badge-dark">Edit</a>
 <hr/>
 <%end%>
+</div>
