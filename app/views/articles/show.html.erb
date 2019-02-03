@@ -10,11 +10,14 @@
 <h3><%=@article.title%></h3>
 <div><%=@article.content%></div>
 <div>posted by <a href="<%=@user%>"><%=@user.username%></a></div>
-</div>
 
-<a href="<%=articles_path%>" class="badge badge-dark">Show all articles</a>
 
+
+<%if current_user.username == @user.username%>
+<a href="<%=edit_article_path(@article)%>" class="badge badge-dark">Edit</a> 
 <%= button_to 'Delete', article_path(@article), :class => "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }%>
+<%end%>
+<a href="<%=articles_path%>" class="badge badge-dark">Show all articles</a>
 <hr/>
 
 <%= form_for [ @article, @article.comments.build ] do |f| %>
@@ -22,7 +25,7 @@
     <%= f.hidden_field :author, :value => current_user.username%>
   </p>
   <p>
-    <%= f.label :body %><br/>
+    <%= f.label 'Add new comment:' %><br/>
     <%= f.text_area :body, :class => "form-control"%>
   </p>
   <p>
@@ -36,5 +39,6 @@
 <div><%=comment.body%></div>
 </div>
 <%end%>
+</div>
 </div>
 </body>
