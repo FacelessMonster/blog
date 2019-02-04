@@ -12,11 +12,12 @@
 <div>posted by <a href="<%=@user%>"><%=@user.username%></a></div>
 
 
-
+<%if current_user%>
 <%if current_user.username == @user.username%>
 <a href="<%=edit_article_path(@article)%>" class="badge badge-dark">Edit</a> 
 <%= button_to 'Delete', article_path(@article), :class => "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }%>
 <%end%>
+
 <a href="<%=articles_path%>" class="badge badge-dark">Show all articles</a>
 <hr/>
 
@@ -32,7 +33,7 @@
     <%= f.submit 'Submit', :class => "btn btn-success" %>
   </p>
 <% end %>
-
+<%end%>
 <% @article.comments.reverse.each do |comment| %>
 <div class="alert alert-info" role="alert">
 <h4><%=comment.author%></h4>

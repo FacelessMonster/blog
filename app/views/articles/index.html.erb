@@ -2,7 +2,9 @@
 <% @articles.each do |article| %>
 <h2><%=article.title%></h2>
 <div><%=article.content%></div>
+<%user = article.user%>
 <a href="<%=article_path(article)%>" class="badge badge-dark">Show</a>
+<i style="color: #777; position: absolute; right: 10%;">posted by <a style="color: #777;" href="<%#%>" ><%=user.username%></a></i>
 <hr/>
 <%end%>
 </div>
