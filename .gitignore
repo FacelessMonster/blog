@@ -31,3 +31,4 @@
 /config/master.key
 *.sqlite3
 *.sqlite3
+*.sqlite3
