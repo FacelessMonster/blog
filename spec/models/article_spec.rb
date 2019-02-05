@@ -16,4 +16,13 @@ describe Article, type: :model do
       expect(article.subject).to  eq 'Foo Bar'
     end
   end
+
+  describe "#last_comment" do
+    it "returns the last comment" do
+      #создаем статью с комментариями
+      article = create(:article_with_comments)
+      #проверка
+      expect(article.last_comment.body).to eq "comment body 3"
+    end
+  end
 end
