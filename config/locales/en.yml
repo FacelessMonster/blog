@@ -35,3 +35,6 @@ en:
   contacts:
     contact_us: "Contact Us!"
     ok: "Ok ok"
+
+  articles:
+    create: "Create article:"

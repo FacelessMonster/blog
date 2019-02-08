@@ -10,6 +10,6 @@ feature 'Article creation' do
   end
   scenario 'allows user to create article' do
     visit new_article_path
-    expect(page).to have_content "Create article:"
+    expect(page).to have_content I18n.t('articles.create')
   end
 end
