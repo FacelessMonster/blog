@@ -15,7 +15,7 @@ describe Article, type: :model do
     it "returns the article title" do
       article = create(:article, title: 'Foo Bar')
 
-      expect(article.subject).to  eq 'Foo Bar'
+      expect(article.subject).to eq 'Foo Bar'
     end
   end
 
